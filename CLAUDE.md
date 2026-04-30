@@ -1,72 +1,34 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code when working in this repository.
 
 ## Project Overview
 
-This is a **Claude Code plugin** - a collection of production-ready agents, skills, hooks, commands, rules, and MCP configurations. The project provides battle-tested workflows for software development using Claude Code.
+Local Claude Code plugin (dotfiles): code-focused agents, skills, commands, hooks, and rules. Not published to npm.
 
-## Running Tests
+## Layout
 
-```bash
-# Run all tests
-node tests/run-all.js
+- `agents/` — 37 specialized subagents (planner, code-reviewer, tdd-guide, language-specific reviewers and build-resolvers)
+- `skills/` — 91 skills covering language patterns, testing, security, frontend/backend, API design, git, docker, postgres, MCP, etc.
+- `commands/` — 40 slash commands (`/tdd`, `/plan`, `/e2e`, `/code-review`, `/build-fix`, `/feature-dev`, language-specific `*-build`/`*-review`/`*-test`, `/prp-*`, `/hookify-*`)
+- `hooks/hooks.json` — plugin hook configuration
+- `rules/` — language rules (cpp/csharp/dart/golang/java/kotlin/perl/php/python/rust/swift/typescript/web/zh + common)
+- `mcp-configs/mcp-servers.json` — MCP server registry
+- `scripts/hooks/` — hook scripts wired up in `hooks/hooks.json`
+- `scripts/lib/` — shared helpers used by hooks
+- `examples/` — CLAUDE.md templates for common project types (django/go/laravel/rust/nextjs/etc.)
 
-# Run individual test files
-node tests/lib/utils.test.js
-node tests/lib/package-manager.test.js
-node tests/hooks/hooks.test.js
-```
+## Core Principles
 
-## Architecture
+1. Agent-First — delegate domain work to specialized agents
+2. Test-Driven — tests before implementation, 80%+ coverage
+3. Security-First — validate input, protect secrets, safe defaults
+4. Plan Before Execute — break complex changes into deliberate phases
 
-The project is organized into several core components:
+## Conventions
 
-- **agents/** - Specialized subagents for delegation (planner, code-reviewer, tdd-guide, etc.)
-- **skills/** - Workflow definitions and domain knowledge (coding standards, patterns, testing)
-- **commands/** - Slash commands invoked by users (/tdd, /plan, /e2e, etc.)
-- **hooks/** - Trigger-based automations (session persistence, pre/post-tool hooks)
-- **rules/** - Always-follow guidelines (security, coding style, testing requirements)
-- **mcp-configs/** - MCP server configurations for external integrations
-- **scripts/** - Cross-platform Node.js utilities for hooks and setup
-- **tests/** - Test suite for scripts and utilities
-
-## Key Commands
-
-- `/tdd` - Test-driven development workflow
-- `/plan` - Implementation planning
-- `/e2e` - Generate and run E2E tests
-- `/code-review` - Quality review
-- `/build-fix` - Fix build errors
-- `/learn` - Extract patterns from sessions
-- `/skill-create` - Generate skills from git history
-
-## Development Notes
-
-- Package manager detection: npm, pnpm, yarn, bun (configurable via `CLAUDE_PACKAGE_MANAGER` env var or project config)
-- Cross-platform: Windows, macOS, Linux support via Node.js scripts
-- Agent format: Markdown with YAML frontmatter (name, description, tools, model)
-- Skill format: Markdown with clear sections for when to use, how it works, examples
-- Skill placement: Curated in skills/; generated/imported under ~/.claude/skills/. See docs/SKILL-PLACEMENT-POLICY.md
-- Hook format: JSON with matcher conditions and command/notification hooks
-
-## Contributing
-
-Follow the formats in CONTRIBUTING.md:
-- Agents: Markdown with frontmatter (name, description, tools, model)
-- Skills: Clear sections (When to Use, How It Works, Examples)
-- Commands: Markdown with description frontmatter
-- Hooks: JSON with matcher and hooks array
-
-File naming: lowercase with hyphens (e.g., `python-reviewer.md`, `tdd-workflow.md`)
-
-## Skills
-
-Use the following skills when working on related files:
-
-| File(s) | Skill |
-|---------|-------|
-| `README.md` | `/readme` |
-| `.github/workflows/*.yml` | `/ci-workflow` |
-
-When spawning subagents, always pass conventions from the respective skill into the agent's prompt.
+- Agents: Markdown with YAML frontmatter (`name`, `description`, `tools`, `model`)
+- Skills: SKILL.md with `name`, `description`, plus content sections
+- Commands: Markdown with `description:` frontmatter
+- Hooks: JSON in `hooks/hooks.json`, scripts in `scripts/hooks/*.js`
+- File naming: lowercase with hyphens (e.g. `python-reviewer.md`)

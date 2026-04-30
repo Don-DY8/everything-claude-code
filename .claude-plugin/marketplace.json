@@ -1,47 +1,27 @@
 {
-  "name": "everything-claude-code",
+  "name": "cc",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "me@affaanmustafa.com"
+    "name": "iteaker"
   },
   "metadata": {
-    "description": "Battle-tested Claude Code configurations from an Anthropic hackathon winner"
+    "description": "Local code-focused Claude Code plugin: 37 agents, 91 skills, 40 commands, production-ready hooks"
   },
   "plugins": [
     {
-      "name": "everything-claude-code",
+      "name": "cc",
       "source": "./",
-      "description": "The most comprehensive Claude Code plugin — 38 agents, 156 skills, 72 legacy command shims, selective install profiles, and production-ready hooks for TDD, security scanning, code review, and continuous learning",
-      "version": "1.10.0",
-      "author": {
-        "name": "Affaan Mustafa",
-        "email": "me@affaanmustafa.com"
-      },
-      "homepage": "https://ecc.tools",
-      "repository": "https://github.com/affaan-m/everything-claude-code",
-      "license": "MIT",
-      "keywords": [
-        "agents",
-        "skills",
-        "hooks",
-        "commands",
-        "tdd",
-        "code-review",
-        "security",
-        "best-practices"
-      ],
+      "description": "37 code-focused agents, 91 language/testing/security skills, 40 commands, and hook-driven quality gates",
+      "version": "2.0.0",
       "category": "workflow",
       "tags": [
         "agents",
         "skills",
-        "hooks",
         "commands",
+        "hooks",
         "tdd",
         "code-review",
-        "security",
-        "best-practices"
-      ],
-      "strict": false
+        "security"
+      ]
     }
   ]
 }
