@@ -52,7 +52,6 @@ Read each changed file in full. Check for:
 - Missing error handling
 - console.log statements
 - TODO/FIXME comments
-- Missing JSDoc for public APIs
 
 **Best Practices (MEDIUM):**
 - Mutation patterns (use immutable instead)

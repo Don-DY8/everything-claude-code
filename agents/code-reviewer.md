@@ -168,7 +168,6 @@ const usersWithPosts = await db.query(`
 ### Best Practices (LOW)
 
 - **TODO/FIXME without tickets** — TODOs should reference issue numbers
-- **Missing JSDoc for public APIs** — Exported functions without documentation
 - **Poor naming** — Single-letter variables (x, tmp, data) in non-trivial contexts
 - **Magic numbers** — Unexplained numeric constants
 - **Inconsistent formatting** — Mixed semicolons, quote styles, indentation

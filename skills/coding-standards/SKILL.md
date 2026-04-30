@@ -382,30 +382,16 @@ count++
 name = user.name
 ```
 
-### JSDoc for Public APIs
+### JSDoc / Doc Comments
 
-```typescript
-/**
- * Searches markets using semantic similarity.
- *
- * @param query - Natural language search query
- * @param limit - Maximum number of results (default: 10)
- * @returns Array of markets sorted by similarity score
- * @throws {Error} If OpenAI API fails or Redis unavailable
- *
- * @example
- * ```typescript
- * const results = await searchMarkets('election', 5)
- * console.log(results[0].name) // "Trump vs Biden"
- * ```
- */
-export async function searchMarkets(
-  query: string,
-  limit: number = 10
-): Promise<Market[]> {
-  // Implementation
-}
-```
+Default to **no doc comments**. Well-named identifiers and types already document the API.
+
+Only add a doc comment when:
+- The function is part of a published library API consumed by external code
+- A non-obvious constraint, invariant, or failure mode would surprise the caller
+- The user explicitly asks for it
+
+Do NOT add JSDoc just because a function is `export`ed.
 
 ## Performance Best Practices
 

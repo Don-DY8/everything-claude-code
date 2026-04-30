@@ -100,8 +100,9 @@ function UserCard({ user, onSelect }: UserCardProps) {
 
 ### JavaScript Files
 
-- In `.js` and `.jsx` files, use JSDoc when types improve clarity and a TypeScript migration is not practical
-- Keep JSDoc aligned with runtime behavior
+- In `.js` and `.jsx` files, only add JSDoc when types are non-obvious AND a TypeScript migration is not practical
+- Do not add JSDoc just because a function is exported — well-named parameters and types already document the API
+- When you do add JSDoc, keep it aligned with runtime behavior
 
 ```javascript
 /**
