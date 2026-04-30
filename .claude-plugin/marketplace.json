@@ -11,7 +11,7 @@
       "name": "cc",
       "source": "./",
       "description": "37 code-focused agents, 91 language/testing/security skills, 40 commands, and hook-driven quality gates",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "category": "workflow",
       "tags": [
         "agents",

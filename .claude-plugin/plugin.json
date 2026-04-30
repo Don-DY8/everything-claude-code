@@ -1,6 +1,6 @@
 {
   "name": "cc",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Local Claude Code plugin: 37 code-focused agents, 91 language/testing/security skills, 40 commands, and production-ready hooks for software development",
   "license": "MIT",
   "skills": ["./skills/"],
